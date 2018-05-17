@@ -25,7 +25,7 @@ ENV PATH="/depot_tools:${PATH}"
 
 RUN fetch v8 && \
     cd /v8 && \
-    git checkout ${V8_VERSION}
+    git checkout ${V8_VERSION} && \
     ./tools/dev/v8gen.py x64.release && \
     ninja -C out.gn/x64.release
 
