@@ -67,6 +67,12 @@ docker run --rm -it -v $(PWD)/examples:/examples/ d8 /examples/hello.js
 Hello World!
 ```
 
+# Build Container Image
+
+```
+$ docker build -t d8 .
+```
+
 # Resources
 
 * https://github.com/v8/v8
