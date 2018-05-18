@@ -4,7 +4,7 @@
 
 FROM debian:stretch-slim as builder
 
-ENV V8_VERSION="6.8.241"
+ARG V8_VERSION=latest
 
 RUN apt-get update && apt-get upgrade -yqq
 
@@ -35,7 +35,10 @@ RUN fetch v8 && \
 
 FROM debian:stretch-slim
 
-LABEL v8.version="6.8.241" \
+ARG V8_VERSION=latest
+ENV V8_VERSION=$V8_VERSION
+
+LABEL v8.version=$V8_VERSION \
       maintainer="andre.burgaud@gmail.com"
 
 RUN apt-get update && apt-get upgrade -yqq && \
@@ -48,9 +51,12 @@ COPY --from=builder /v8/out.gn/x64.release/d8 \
                     /v8/out.gn/x64.release/natives_blob.bin \
                     /v8/out.gn/x64.release/snapshot_blob.bin ./
 
-COPY entrypoint.sh ./
+COPY entrypoint.sh /
 
-RUN chmod +x entrypoint.sh && \
-    mkdir /examples
+RUN chmod +x /entrypoint.sh && \
+    mkdir /examples && \
+    ln -s /v8/d8 /usr/local/bin/d8 && \
+    ln -s /v8/natives_blob.bin /usr/local/bin/natives_blob.bin && \
+    ln -s /v8/snapshot_blob.bin /usr/local/bin/snapshot_blob.bin
 
-ENTRYPOINT ["/v8/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
