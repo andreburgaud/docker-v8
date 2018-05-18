@@ -23,4 +23,5 @@ clean:
 	docker rmi `docker images -f dangling=true -q` || true
 
 push:
+	docker tag d8:${TAG} docker.io/andreburgaud/d8:${TAG}
 	docker push docker.io/andreburgaud/d8:${TAG}
