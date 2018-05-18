@@ -25,3 +25,5 @@ clean:
 push:
 	docker tag d8:${TAG} docker.io/andreburgaud/d8:${TAG}
 	docker push docker.io/andreburgaud/d8:${TAG}
+	docker tag d8:${TAG} docker.io/andreburgaud/d8:latest
+	docker push docker.io/andreburgaud/d8:latest
