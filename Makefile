@@ -28,6 +28,11 @@ push:
 	docker tag ${IMAGE}:${TAG} docker.io/${IMAGE}:latest
 	docker push docker.io/${IMAGE}:latest
 
-deploy: clean build push
+github:
+	git tag -a ${TAG} -m 'Version ${TAG}'
+	git push
+	git push origin --tags
+
+deploy: clean build push github
 
 .PHONY: deploy help
