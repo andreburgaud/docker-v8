@@ -1,4 +1,4 @@
-TAG:=6.8.259
+TAG:=6.8.260
 IMAGE:=andreburgaud/d8
 
 default: help
