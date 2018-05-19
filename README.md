@@ -15,10 +15,14 @@ From https://developers.google.com/v8/:
 
 # Usage
 
+```
+$ docker pull andreburgaud/d8
+```
+
 ## V8 Enhanced Shell
 
 ```
-$ docker run --rm -it d8 shell
+$ docker run --rm -it andreburgaud/d8 shell
 Starting d8 with the following parameters: --allow-natives-syntax --harmony-shipping
 --harmony-do-expressions --harmony-class-fields --harmony-static-fields --harmony-array-flatten
 Use quit() or Ctrl-D (i.e. EOF) to exit the d8 Shell
@@ -33,7 +37,7 @@ d8>
 * Additional V8 options in addition to the `harmony` ones can be passed at the command line:
 
 ```
-$ docker run --rm -it d8 shell --dump-counters
+$ docker run --rm -it andreburgaud/d8 shell --dump-counters
 ```
 
 ### Using Multiline
@@ -41,7 +45,7 @@ $ docker run --rm -it d8 shell --dump-counters
 When starting the d8 container with command `shell`, as follow:
 
 ```
-$ docker run --rm -it d8 shell
+$ docker run --rm -it andreburgaud/d8 shell
 ```
 
 You also have the ability to write statements across several lines, by ending lines with a `\` (backslash):
@@ -57,8 +61,6 @@ undefined
 d8>
 ```
 
-
-
 ### What is Harmony?
 
 When ECMAScript 4 (ES4) was abandoned in 2008, some of its features were rolled into a project codenamed ECMAScript Harmony. ES6 later renamed ES2015 was the first "ECMAScript Harmony" specification and is also known as "ES6 Harmony". The V8 harmony options enable specific features that may not yet be part of the default engine features.
@@ -66,7 +68,7 @@ When ECMAScript 4 (ES4) was abandoned in 2008, some of its features were rolled 
 ## Help
 
 ```
-$ docker run --rm -it d8 help
+$ docker run --rm -it andreburgaud/d8 help
 ```
 
 Display the commands available via the docker container.
@@ -74,19 +76,19 @@ Display the commands available via the docker container.
 ## Default V8 Shell
 
 ```
-$ docker run --rm -it d8
+$ docker run --rm -it andreburgaud/d8
 ```
 
 ## Internal V8 help
 
 ```
-$ docker run --rm -it d8 --help
+$ docker run --rm -it andreburgaud/d8 --help
 ```
 
 ## Start D8 with custom options
 
 ```
-$ docker run --rm -it d8 --dump-counters
+$ docker run --rm -it andreburgaud/d8 --dump-counters
 ```
 
 ## Executing a JavaScript file
@@ -100,15 +102,19 @@ console.log('Hello World!');
 Execute:
 
 ```
-docker run --rm -it -v $(PWD)/examples:/examples/ d8 /examples/hello.js
+docker run --rm -it -v $(PWD)/examples:/examples/ andreburgaud/d8 /examples/hello.js
 Hello World!
 ```
 
-# Build Container Image
+# Build Local Image
 
 ```
+$ git clone https://github.com/andreburgaud/docker-v8.git
+$ cd docker-v8
 $ docker build -t d8 .
 ```
+
+**Note**: the compilation may take some time depending on your hardware. For example it takes about 30 minutes on a 3.5GHz four core iMac with 24GB of RAM.
 
 # Resources
 
