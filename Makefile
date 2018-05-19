@@ -13,7 +13,7 @@ help:
 	@echo
 
 build:
-	docker build --build-arg V8_VERSION=${TAG} -t andreburgaud/d8:${TAG} .
+	docker build --build-arg V8_VERSION=${TAG} -t ${IMAGE}:${TAG} .
 
 clean:
 	# Remove containers with exited status:
