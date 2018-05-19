@@ -1,4 +1,5 @@
-TAG:=6.8.246
+TAG:=6.8.259
+IMAGE:=andreburgaud/d8
 
 default: help
 
@@ -12,18 +13,21 @@ help:
 	@echo
 
 build:
-	docker build --build-arg V8_VERSION=${TAG} -t d8:${TAG} .
+	docker build --build-arg V8_VERSION=${TAG} -t andreburgaud/d8:${TAG} .
 
 clean:
 	# Remove containers with exited status:
 	docker rm `docker ps -a -f status=exited -q` || true
-	docker rmi d8:latest || true
-	docker rmi d8:${TAG} || true
+	docker rmi ${IMAGE}:latest || true
+	docker rmi ${IMAGE}:${TAG} || true
 	# Delete dangling images
 	docker rmi `docker images -f dangling=true -q` || true
 
 push:
-	docker tag d8:${TAG} docker.io/andreburgaud/d8:${TAG}
-	docker push docker.io/andreburgaud/d8:${TAG}
-	docker tag d8:${TAG} docker.io/andreburgaud/d8:latest
-	docker push docker.io/andreburgaud/d8:latest
+	docker push docker.io/${IMAGE}:${TAG}
+	docker tag ${IMAGE}:${TAG} docker.io/${IMAGE}:latest
+	docker push docker.io/${IMAGE}:latest
+
+deploy: clean build push
+
+.PHONY: deploy help
