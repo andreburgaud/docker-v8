@@ -8,16 +8,15 @@ ARG V8_VERSION=latest
 
 RUN apt-get update && apt-get upgrade -yqq
 
-RUN apt-get install bison \
+RUN DEBIAN_FRONTEND=noninteractive \
+    apt-get install bison \
                     cdbs \
                     curl \
                     flex \
                     g++ \
                     git \
                     python \
-                    pkg-config \
-                    rlwrap \
-                    vim -yqq
+                    pkg-config -yqq
 
 RUN git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 
@@ -42,7 +41,7 @@ LABEL v8.version=$V8_VERSION \
       maintainer="andre.burgaud@gmail.com"
 
 RUN apt-get update && apt-get upgrade -yqq && \
-    apt-get install curl rlwrap vim -yqq && \
+    DEBIAN_FRONTEND=noninteractive apt-get install curl rlwrap vim -yqq && \
     apt-get clean
 
 WORKDIR /v8
