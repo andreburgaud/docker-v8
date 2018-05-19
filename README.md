@@ -36,6 +36,29 @@ d8>
 $ docker run --rm -it d8 shell --dump-counters
 ```
 
+### Using Multiline
+
+When starting the d8 container with command `shell`, as follow:
+
+```
+$ docker run --rm -it d8 shell
+```
+
+You also have the ability to write statements across several lines, by ending lines with a `\` (backslash):
+
+```
+d8> function f(n) { \
+    print(n); \
+}
+undefined
+d8> f('TEST');
+TEST
+undefined
+d8>
+```
+
+
+
 ### What is Harmony?
 
 When ECMAScript 4 (ES4) was abandoned in 2008, some of its features were rolled into a project codenamed ECMAScript Harmony. ES6 later renamed ES2015 was the first "ECMAScript Harmony" specification and is also known as "ES6 Harmony". The V8 harmony options enable specific features that may not yet be part of the default engine features.
