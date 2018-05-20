@@ -35,4 +35,4 @@ github:
 
 deploy: clean build push github
 
-.PHONY: deploy help
+.PHONY: help build clean push github deploy
