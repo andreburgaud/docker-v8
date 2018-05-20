@@ -27,6 +27,7 @@ $ docker pull andreburgaud/d8
 $ docker run --rm -it andreburgaud/d8 shell
 Starting d8 with the following parameters: --allow-natives-syntax --harmony-shipping
 --harmony-do-expressions --harmony-class-fields --harmony-static-fields --harmony-array-flatten
+--harmony-numeric-separator
 Use quit() or Ctrl-D (i.e. EOF) to exit the d8 Shell
 V8 version 6.8.0 (candidate)
 d8>
