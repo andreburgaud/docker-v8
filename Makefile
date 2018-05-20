@@ -1,4 +1,4 @@
-TAG:=6.8.260
+TAG:=${IMAGE_TAG}
 IMAGE:=andreburgaud/d8
 
 default: help
