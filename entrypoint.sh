@@ -26,10 +26,10 @@ elif [ "$1" = 'version' ]; then
 elif [ "$1" = 'help' ]; then
     echo -e "\e[92mV8 version ${V8_VERSION}\e[39m"
     echo -e "\e[93mUsage:\e[39m"
-    echo -e "    \e[97mdocker run --rm -it d8 shell\e[39m     : starts enhanced d8 shell"
-    echo -e "    \e[97mdocker run --rm -it d8\e[39m           : starts default d8 shell"
-    echo -e "    \e[97mdocker run --rm -it d8 help\e[39m      : displays this help"
-    echo -e "    \e[97mdocker run --rm -it d8 version\e[39m   : displays V8 version"
+    echo -e "    \e[97mdocker run --rm -it andreburgaud/d8 shell\e[39m     : starts enhanced d8 shell"
+    echo -e "    \e[97mdocker run --rm -it andreburgaud/d8\e[39m           : starts default d8 shell"
+    echo -e "    \e[97mdocker run --rm -it andreburgaud/d8 help\e[39m      : displays this help"
+    echo -e "    \e[97mdocker run --rm -it andreburgaud/d8 version\e[39m   : displays V8 version"
 else
     start_d8 $@
 fi
