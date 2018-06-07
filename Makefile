@@ -12,10 +12,19 @@ help:
 	@echo '    make push            Push an existing image to Docker Hub'
 	@echo
 
-build:
+validate:
+ifndef TAG
+	@echo 'Set environment variable to the V8 tag'
+	@echo 'Example: export IMAGE_TAG=6.9.99'
+	@false
+else
+	@echo 'IMAGE_TAG=${TAG}'
+endif
+
+build: validate
 	docker build --build-arg V8_VERSION=${TAG} -t ${IMAGE}:${TAG} .
 
-clean:
+clean: validate
 	# Remove containers with exited status:
 	docker rm `docker ps -a -f status=exited -q` || true
 	docker rmi ${IMAGE}:latest || true
@@ -23,11 +32,11 @@ clean:
 	# Delete dangling images
 	docker rmi `docker images -f dangling=true -q` || true
 
-push:
+push: validate
 	docker push docker.io/${IMAGE}:${TAG}
 	docker tag ${IMAGE}:${TAG} docker.io/${IMAGE}:latest
 	docker push docker.io/${IMAGE}:latest
 
 deploy: clean build push
 
-.PHONY: help build clean push deploy
+.PHONY: help build clean push deploy validate
