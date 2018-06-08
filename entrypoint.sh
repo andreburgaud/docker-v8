@@ -6,10 +6,24 @@ start_d8() {
 }
 
 start_d8_shell() {
-    OPTIONS=(--allow-natives-syntax --harmony-shipping
-             --harmony-do-expressions --harmony-class-fields
-             --harmony-static-fields --harmony-array-flatten
-             --harmony-numeric-separator)
+    OPTIONS=(--harmony-array-flat
+             --harmony-array-prototype-values
+             --harmony-bigint
+             --harmony-class-fields
+             --harmony-do-expressions
+             --harmony-dynamic-import
+             --harmony-function-tostring
+             --harmony-import-meta
+             --harmony-locale
+             --harmony-numeric-separator
+             --harmony-private-fields
+             --harmony-public-fields
+             --harmony-sharedarraybuffer
+             --harmony-shipping
+             --harmony-static-fields
+             --harmony-string-matchall
+             --harmony-string-trimming)
+
     echo -e "\e[93mOptions\e[39m: ${OPTIONS[*]} $*"
     echo -e "\e[93mUse quit() or Ctrl-D (i.e. EOF) to exit the D8 Shell\e[39m"
     bash -c "sleep 0.5; rlwrap --prompt-colour=green --multi-line d8 ${OPTIONS[*]} $*"
