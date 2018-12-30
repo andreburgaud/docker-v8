@@ -68,6 +68,40 @@ d8>
 
 When ECMAScript 4 (ES4) was abandoned in 2008, some of its features were rolled into a project codenamed ECMAScript Harmony. ES6 later renamed ES2015 was the first "ECMAScript Harmony" specification and is also known as "ES6 Harmony". The V8 harmony options enable specific features that may not yet be part of the default engine features.
 
+
+### Harmony Flags with Version 7.3.255
+
+The following flags are enabled when executing the shell `docker run --rm -it andreburgaud/d8:7.3.255 shell`:
+
+
+```
+--harmony (enable all completed harmony features)
+--harmony-shipping (enable all shipped harmony features)
+--harmony-class-fields (enable "harmony fields in class literals" (in progress))
+--harmony-await-optimization (enable "harmony await taking 1 tick" (in progress))
+--harmony-private-methods (enable "harmony private methods in class literals" (in progress))
+--harmony-regexp-sequence (enable "RegExp Unicode sequence properties" (in progress))
+--harmony-weak-refs (enable "harmony weak references" (in progress))
+--harmony-locale (enable "Intl.Locale" (in progress))
+--harmony-private-fields (enable "harmony private fields in class literals")
+--harmony-numeric-separator (enable "harmony numeric separator between digits")
+--harmony-object-from-entries (enable "harmony Object.fromEntries()")
+--harmony-intl-segmenter (enable "Intl.Segmenter")
+--harmony-namespace-exports (enable "harmony namespace exports (export * as foo from 'bar')")
+--harmony-sharedarraybuffer (enable "harmony sharedarraybuffer")
+--harmony-import-meta (enable "harmony import.meta property")
+--harmony-dynamic-import (enable "harmony dynamic import")
+--harmony-array-flat (enable "harmony Array.prototype.{flat,flatMap}")
+--harmony-symbol-description (enable "harmony Symbol.prototype.description")
+--harmony-global (enable "harmony global")
+--harmony-json-stringify (enable "well-formed JSON.stringify")
+--harmony-public-fields (enable "harmony public instance fields in class literals")
+--harmony-static-fields (enable "harmony static fields in class literals")
+--harmony-string-matchall (enable "harmony String.prototype.matchAll")
+--harmony-intl-list-format (enable "Intl.ListFormat")
+--harmony-intl-relative-time-format (enable "Intl.RelativeTimeFormat")
+```
+
 ## Help
 
 ```

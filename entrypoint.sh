@@ -6,27 +6,35 @@ start_d8() {
 }
 
 start_d8_shell() {
-    OPTIONS=(--harmony-array-flat
-             --harmony-array-prototype-values
-             --harmony-bigint
-             --harmony-class-fields
-             --harmony-do-expressions
-             --harmony-dynamic-import
-             --harmony-function-tostring
-             --harmony-import-meta
-             --harmony-locale
-             --harmony-numeric-separator
-             --harmony-private-fields
-             --harmony-public-fields
-             --harmony-sharedarraybuffer
+    OPTIONS=(--harmony
              --harmony-shipping
+             --harmony-class-fields
+             --harmony-await-optimization
+             --harmony-private-methods
+             --harmony-regexp-sequence
+             --harmony-weak-refs
+             --harmony-locale
+             --harmony-private-fields
+             --harmony-numeric-separator
+             --harmony-object-from-entries
+             --harmony-intl-segmenter
+             --harmony-namespace-exports
+             --harmony-sharedarraybuffer
+             --harmony-import-meta
+             --harmony-dynamic-import
+             --harmony-array-flat
+             --harmony-symbol-description
+             --harmony-global
+             --harmony-json-stringify
+             --harmony-public-fields
              --harmony-static-fields
              --harmony-string-matchall
-             --harmony-string-trimming)
+             --harmony-intl-list-format
+             --harmony-intl-relative-time-format)
 
     echo -e "\e[93mOptions\e[39m: ${OPTIONS[*]} $*"
     echo -e "\e[93mUse quit() or Ctrl-D (i.e. EOF) to exit the D8 Shell\e[39m"
-    bash -c "sleep 0.5; rlwrap --prompt-colour=green --multi-line d8 ${OPTIONS[*]} $*"
+    bash -c "sleep 0.5; rlwrap --prompt-colour=green d8 ${OPTIONS[*]} $*"
 }
 
 if [ "$1" = 'bash' ]; then

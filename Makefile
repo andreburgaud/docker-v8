@@ -15,7 +15,7 @@ help:
 validate:
 ifndef TAG
 	@echo 'Set environment variable to the V8 tag'
-	@echo 'Example: export IMAGE_TAG=6.9.99'
+	@echo 'Example: export IMAGE_TAG=7.3.255'
 	@false
 else
 	@echo 'IMAGE_TAG=${TAG}'
@@ -38,5 +38,11 @@ push: validate
 	docker push docker.io/${IMAGE}:latest
 
 deploy: clean build push
+
+github:
+	git push
+	git tag -a ${TAG} -m 'Version ${TAG}'
+	git push origin --tags
+
 
 .PHONY: help build clean push deploy validate
