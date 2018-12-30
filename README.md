@@ -7,7 +7,7 @@
 [![Layers](https://images.microbadger.com/badges/image/andreburgaud/d8.svg)](https://microbadger.com/images/andreburgaud/d8)
 [![Version](https://images.microbadger.com/badges/version/andreburgaud/d8.svg)](https://microbadger.com/images/andreburgaud/d8)
 
-![screen shot 2018-05-19 at 11 35 35 pm](https://user-images.githubusercontent.com/6396088/40275728-26dee8c2-5bbe-11e8-9493-568b585a97bd.png)
+![docker_v8_7 3 255](https://user-images.githubusercontent.com/6396088/50544208-e4f7b000-0bb3-11e9-9c40-b256180b140a.png)
 
 # V8
 
