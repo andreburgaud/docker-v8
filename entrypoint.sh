@@ -9,28 +9,29 @@ start_d8_shell() {
     OPTIONS=(--harmony
              --harmony-shipping
              --harmony-class-fields
-             --harmony-await-optimization
              --harmony-private-methods
              --harmony-regexp-sequence
              --harmony-weak-refs
+             --harmony-intl-bigint
+             --harmony-intl-datetime-style
              --harmony-locale
              --harmony-private-fields
              --harmony-numeric-separator
-             --harmony-object-from-entries
+             --harmony-hashbang
              --harmony-intl-segmenter
              --harmony-namespace-exports
              --harmony-sharedarraybuffer
              --harmony-import-meta
              --harmony-dynamic-import
-             --harmony-array-flat
              --harmony-symbol-description
              --harmony-global
              --harmony-json-stringify
              --harmony-public-fields
              --harmony-static-fields
              --harmony-string-matchall
-             --harmony-intl-list-format
-             --harmony-intl-relative-time-format)
+             --harmony-object-from-entries
+             --harmony-await-optimization
+             --harmony-intl-list-format)
 
     echo -e "\e[93mOptions\e[39m: ${OPTIONS[*]} $*"
     echo -e "\e[93mUse quit() or Ctrl-D (i.e. EOF) to exit the D8 Shell\e[39m"
