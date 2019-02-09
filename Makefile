@@ -32,7 +32,7 @@ clean: validate
 	# Delete dangling images
 	docker rmi `docker images -f dangling=true -q` || true
 
-push: validate
+push:
 	docker push docker.io/${IMAGE}:${TAG}
 	docker tag ${IMAGE}:${TAG} docker.io/${IMAGE}:latest
 	docker push docker.io/${IMAGE}:latest
