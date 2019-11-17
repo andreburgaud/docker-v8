@@ -1,7 +1,7 @@
 # V8 Docker Image
 
 * Builds the Google JavaScript V8 engine and allows to use the D8 shell
-* D8 (Debug8) is V8's own minimalist debug shell (https://github.com/v8/v8/wiki/Using-D8)
+* D8 (Debug8) is V8's own minimalist debug shell (https://v8.dev/docs/d8)
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/andreburgaud/d8.svg)](https://hub.docker.com/r/andreburgaud/d8/)
 [![Layers](https://images.microbadger.com/badges/image/andreburgaud/d8.svg)](https://microbadger.com/images/andreburgaud/d8)
@@ -24,18 +24,13 @@ $ docker pull andreburgaud/d8
 ## V8 Enhanced Shell
 
 ```
-$ docker run --rm -it andreburgaud/d8 shell
-Options: --harmony --harmony-shipping --harmony-class-fields --harmony-private-methods
---harmony-regexp-sequence --harmony-weak-refs --harmony-intl-bigint
---harmony-intl-datetime-style --harmony-locale --harmony-private-fields
---harmony-numeric-separator --harmony-hashbang --harmony-intl-segmenter
+$ docker run --rm -it -v $PWD/examples:/examples/ andreburgaud/d8 shell
+Options: --harmony --harmony-shipping --harmony-private-methods
+--harmony-regexp-sequence --harmony-weak-refs --harmony-intl-segmenter
 --harmony-namespace-exports --harmony-sharedarraybuffer --harmony-import-meta
---harmony-dynamic-import --harmony-symbol-description --harmony-global
---harmony-json-stringify --harmony-public-fields --harmony-static-fields
---harmony-string-matchall --harmony-object-from-entries --harmony-await-optimization
---harmony-intl-list-format
+--harmony-dynamic-import
 Use quit() or Ctrl-D (i.e. EOF) to exit the D8 Shell
-V8 version 7.4.120
+V8 version 8.0.287
 d8>
 ```
 
@@ -48,6 +43,8 @@ d8>
 ```
 $ docker run --rm -it andreburgaud/d8 shell --dump-counters
 ```
+
+Upon exciting the d8 shell, the v8 counters will be dumped to the terminal. The counters are listed alphabetically with their values.
 
 ### Using Multiline
 
@@ -74,39 +71,21 @@ d8>
 
 When ECMAScript 4 (ES4) was abandoned in 2008, some of its features were rolled into a project codenamed ECMAScript Harmony. ES6 later renamed ES2015 was the first "ECMAScript Harmony" specification and is also known as "ES6 Harmony". The V8 harmony options enable specific features that may not yet be part of the default engine features.
 
+### Harmony Flags with Version 8.0.287
 
-### Harmony Flags with Version 7.4.120
-
-The following flags are enabled when executing the shell `docker run --rm -it andreburgaud/d8:7.3.255 shell`:
-
+The following flags are enabled when executing the repl `docker run --rm -it andreburgaud/d8:8.0.287 repl`:
 
 ```
 --harmony (enable all completed harmony features)
 --harmony-shipping (enable all shipped harmony features)
---harmony-class-fields (enable "harmony fields in class literals" (in progress))
 --harmony-private-methods (enable "harmony private methods in class literals" (in progress))
 --harmony-regexp-sequence (enable "RegExp Unicode sequence properties" (in progress))
 --harmony-weak-refs (enable "harmony weak references" (in progress))
---harmony-intl-bigint (enable "BigInt.prototype.toLocaleString" (in progress))
---harmony-intl-datetime-style (enable "dateStyle timeStyle for DateTimeFormat" (in progress))
---harmony-locale (enable "Intl.Locale" (in progress))
---harmony-private-fields (enable "harmony private fields in class literals")
---harmony-numeric-separator (enable "harmony numeric separator between digits")
---harmony-hashbang (enable "harmony hashbang syntax")
 --harmony-intl-segmenter (enable "Intl.Segmenter")
 --harmony-namespace-exports (enable "harmony namespace exports (export * as foo from 'bar')")
 --harmony-sharedarraybuffer (enable "harmony sharedarraybuffer")
 --harmony-import-meta (enable "harmony import.meta property")
 --harmony-dynamic-import (enable "harmony dynamic import")
---harmony-symbol-description (enable "harmony Symbol.prototype.description")
---harmony-global (enable "harmony global")
---harmony-json-stringify (enable "well-formed JSON.stringify")
---harmony-public-fields (enable "harmony public instance fields in class literals")
---harmony-static-fields (enable "harmony static fields in class literals")
---harmony-string-matchall (enable "harmony String.prototype.matchAll")
---harmony-object-from-entries (enable "harmony Object.fromEntries()")
---harmony-await-optimization (enable "harmony await taking 1 tick")
---harmony-intl-list-format (enable "Intl.ListFormat")
 ```
 
 ## Help
@@ -166,6 +145,7 @@ $ docker build -t d8 .
 * https://github.com/v8/v8/wiki
 * https://github.com/v8/v8/wiki/Building-with-GN
 * https://en.wikipedia.org/wiki/ECMAScript
+* https://gist.github.com/kevincennis/0cd2138c78a07412ef21
 
 # MIT License
 

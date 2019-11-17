@@ -8,34 +8,18 @@ start_d8() {
 start_d8_shell() {
     OPTIONS=(--harmony
              --harmony-shipping
-             --harmony-class-fields
              --harmony-private-methods
              --harmony-regexp-sequence
              --harmony-weak-refs
-             --harmony-intl-bigint
-             --harmony-intl-datetime-style
-             --harmony-locale
-             --harmony-private-fields
-             --harmony-numeric-separator
-             --harmony-hashbang
              --harmony-intl-segmenter
              --harmony-namespace-exports
              --harmony-sharedarraybuffer
              --harmony-import-meta
-             --harmony-dynamic-import
-             --harmony-symbol-description
-             --harmony-global
-             --harmony-json-stringify
-             --harmony-public-fields
-             --harmony-static-fields
-             --harmony-string-matchall
-             --harmony-object-from-entries
-             --harmony-await-optimization
-             --harmony-intl-list-format)
+             --harmony-dynamic-import)
 
     echo -e "\e[93mOptions\e[39m: ${OPTIONS[*]} $*"
     echo -e "\e[93mUse quit() or Ctrl-D (i.e. EOF) to exit the D8 Shell\e[39m"
-    bash -c "sleep 0.5; rlwrap --prompt-colour=green d8 ${OPTIONS[*]} $*"
+    bash -c "sleep 0.5; rlwrap -m -pgreen d8 ${OPTIONS[*]} $*"
 }
 
 if [ "$1" = 'bash' ]; then
@@ -51,6 +35,7 @@ elif [ "$1" = 'help' ]; then
     echo -e "\e[93mUsage:\e[39m"
     echo -e "    \e[97mdocker run --rm -it andreburgaud/d8 shell\e[39m     : starts enhanced d8 shell"
     echo -e "    \e[97mdocker run --rm -it andreburgaud/d8\e[39m           : starts default d8 shell"
+    echo -e "    \e[97mdocker run --rm -it andreburgaud/d8 bash\e[39m      : starts a bash shell"
     echo -e "    \e[97mdocker run --rm -it andreburgaud/d8 help\e[39m      : displays this help"
     echo -e "    \e[97mdocker run --rm -it andreburgaud/d8 version\e[39m   : displays V8 version"
 else
