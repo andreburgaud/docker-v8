@@ -30,7 +30,7 @@ Options: --harmony --harmony-shipping --harmony-private-methods
 --harmony-namespace-exports --harmony-sharedarraybuffer --harmony-import-meta
 --harmony-dynamic-import
 Use quit() or Ctrl-D (i.e. EOF) to exit the D8 Shell
-V8 version 8.0.288
+V8 version 8.3.30
 d8>
 ```
 
@@ -71,7 +71,7 @@ d8>
 
 When ECMAScript 4 (ES4) was abandoned in 2008, some of its features were rolled into a project codenamed ECMAScript Harmony. ES6 later renamed ES2015 was the first "ECMAScript Harmony" specification and is also known as "ES6 Harmony". The V8 harmony options enable specific features that may not yet be part of the default engine features.
 
-### Harmony Flags with Version 8.0.288
+### Harmony Flags with Version 8.x
 
 The following flags are enabled when starting the D8 repl `docker run --rm -it andreburgaud/d8 shell`:
 
