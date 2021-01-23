@@ -8,14 +8,15 @@ start_d8() {
 start_d8_shell() {
     OPTIONS=(--harmony
              --harmony-shipping
-             --harmony-private-methods
-             --harmony-regexp-sequence
-             --harmony-weak-refs
-             --harmony-intl-segmenter
-             --harmony-namespace-exports
+             --harmony-top-level-await
+             --harmony-intl-dateformat-day-period
              --harmony-sharedarraybuffer
-             --harmony-import-meta
-             --harmony-dynamic-import)
+             --harmony-atomics
+             --harmony-weak-refs
+             --harmony-string-replaceall
+             --harmony-logical-assignment
+             --harmony-atomics-waitasync
+             --harmony-relative-indexing-methods)
 
     echo -e "\e[93mOptions\e[39m: ${OPTIONS[*]} $*"
     echo -e "\e[93mUse quit() or Ctrl-D (i.e. EOF) to exit the D8 Shell\e[39m"

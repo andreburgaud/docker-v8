@@ -24,13 +24,12 @@ $ docker pull andreburgaud/d8
 ## V8 Enhanced Shell
 
 ```
-$ docker run --rm -it -v $PWD/examples:/examples/ andreburgaud/d8 shell
-Options: --harmony --harmony-shipping --harmony-private-methods
---harmony-regexp-sequence --harmony-weak-refs --harmony-intl-segmenter
---harmony-namespace-exports --harmony-sharedarraybuffer --harmony-import-meta
---harmony-dynamic-import
+$ docker run --rm -it andreburgaud/d8:9.0.56 shell
+Options: --harmony --harmony-shipping --harmony-top-level-await --harmony-intl-dateformat-day-period
+         --harmony-sharedarraybuffer --harmony-atomics --harmony-weak-refs --harmony-string-replaceall
+         --harmony-logical-assignment --harmony-atomics-waitasync --harmony-relative-indexing-methods
 Use quit() or Ctrl-D (i.e. EOF) to exit the D8 Shell
-V8 version 8.3.30
+V8 version 9.0.0 (candidate)
 d8>
 ```
 
@@ -71,21 +70,22 @@ d8>
 
 When ECMAScript 4 (ES4) was abandoned in 2008, some of its features were rolled into a project codenamed ECMAScript Harmony. ES6 later renamed ES2015 was the first "ECMAScript Harmony" specification and is also known as "ES6 Harmony". The V8 harmony options enable specific features that may not yet be part of the default engine features.
 
-### Harmony Flags with Version 8.x
+### Harmony Flags with Version 9.x
 
 The following flags are enabled when starting the D8 repl `docker run --rm -it andreburgaud/d8 shell`:
 
 ```
---harmony (enable all completed harmony features)
---harmony-shipping (enable all shipped harmony features)
---harmony-private-methods (enable "harmony private methods in class literals" (in progress))
---harmony-regexp-sequence (enable "RegExp Unicode sequence properties" (in progress))
---harmony-weak-refs (enable "harmony weak references" (in progress))
---harmony-intl-segmenter (enable "Intl.Segmenter")
---harmony-namespace-exports (enable "harmony namespace exports (export * as foo from 'bar')")
---harmony-sharedarraybuffer (enable "harmony sharedarraybuffer")
---harmony-import-meta (enable "harmony import.meta property")
---harmony-dynamic-import (enable "harmony dynamic import")
+--harmony                             (enable all completed harmony features)
+--harmony-shipping                    (enable all shipped harmony features)
+--harmony-top-level-await             (enable "harmony top level await")
+--harmony-intl-dateformat-day-period  (enable "Add dayPeriod option to DateTimeFormat")
+--harmony-sharedarraybuffer           (enable "harmony sharedarraybuffer")
+--harmony-atomics                     (enable "harmony Atomics.waitAsync")
+--harmony-weak-refs                   (enable "harmony weak references")
+--harmony-string-replaceall           (enable "harmony String.prototype.replaceAll")
+--harmony-logical-assignment          (enable "harmony logical assignment")
+--harmony-atomics-waitasync           (enable "harmony Atomics.waitAsync")
+--harmony-relative-indexing-methods   (enable "harmony relative indexing methods")
 ```
 
 ## Help
