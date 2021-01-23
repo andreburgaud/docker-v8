@@ -3,10 +3,6 @@
 * Builds the Google JavaScript V8 engine and allows to use the D8 shell
 * D8 (Debug8) is V8's own minimalist debug shell (https://v8.dev/docs/d8)
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/andreburgaud/d8.svg)](https://hub.docker.com/r/andreburgaud/d8/)
-[![Layers](https://images.microbadger.com/badges/image/andreburgaud/d8.svg)](https://microbadger.com/images/andreburgaud/d8)
-[![Version](https://images.microbadger.com/badges/version/andreburgaud/d8.svg)](https://microbadger.com/images/andreburgaud/d8)
-
 ![docker_v8_7 3 255](https://user-images.githubusercontent.com/6396088/50544208-e4f7b000-0bb3-11e9-9c40-b256180b140a.png)
 
 # V8
